@@ -5,7 +5,7 @@ import java.io.IOException;
 public interface FileService {
 
 	// 파일 목록 조회
-	public void readFileList() throws IOException;
+	public void getFileList() throws IOException;
 	
 	// 파일 생성
 	public void createFile() throws IOException;

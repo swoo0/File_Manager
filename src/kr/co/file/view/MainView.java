@@ -1,14 +1,12 @@
 package kr.co.file.view;
 
-import kr.co.file.service.FileServiceImpl;
-import kr.co.file.service.MapService;
+import kr.co.file.annotation.AnnotationHandler;
+import kr.co.file.annotation.RequestMapping;
 import kr.co.file.util.ScanUtil;
 
-public class MainWindow {
+public class MainView {
 	
-	// 필드
-	private FileServiceImpl fileService = FileServiceImpl.getInstance();
-	private MapService mapService = MapService.getInstance();
+	AnnotationHandler anno = new AnnotationHandler();
 	
 	// 메인 메뉴
 	public void view() {
@@ -16,8 +14,8 @@ public class MainWindow {
 		System.out.println("| \t 1. 파일 조회 \t\t |");
 		System.out.println("| \t 2. 파일 생성 \t\t |");
 		System.out.println("| \t 3. 파일 삭제 \t\t |");
-		System.out.println("| \t 4. 파일 내용 쓰기 \t |");
-		System.out.println("| \t 5. 파일 내용 읽기 \t |");
+		System.out.println("| \t 4. 파일 내용 읽기 \t |");
+		System.out.println("| \t 5. 파일 내용 쓰기 \t |");
 		System.out.println("| \t 6. 지하철역 검색 \t |");
 		System.out.println("| \t 0. 시스템 종료 \t |");
 		System.out.println("==================================");
@@ -30,32 +28,32 @@ public class MainWindow {
 				switch (menu) {
 					case 1:
 						System.out.println("---------- 파일 목록 ----------");
-						fileService.readFileList();
+						anno.action("/file/list");
 						System.out.println("-------------------------------");
 						returnView();
 					case 2:
 						System.out.println("---------- 파일 생성 ----------");
-						fileService.createFile();
+						anno.action("/file/create");
 						System.out.println("-------------------------------");
 						returnView();
 					case 3:
 						System.out.println("---------- 파일 삭제 ----------");
-						fileService.deleteFile();
+						anno.action("/file/delete");
 						System.out.println("-------------------------------");
 						returnView();
 					case 4:
-						System.out.println("------- 파일 내용 쓰기 -------");
-						fileService.writeFileContent();
+						System.out.println("------- 파일 내용 읽기 -------");
+						anno.action("/file/content/read");
 						System.out.println("------------------------------");
 						returnView();
 					case 5:
-						System.out.println("------- 파일 내용 읽기 -------");
-						fileService.readFileContent();
+						System.out.println("------- 파일 내용 쓰기 -------");
+						anno.action("/file/content/write");
 						System.out.println("------------------------------");
 						returnView();
 					case 6:
-						System.out.println("------- 파일 내용 읽기 -------");
-						mapService.getSubwayList();
+						System.out.println("------- 지하철역 조회 -------");
+						anno.action("/subway/list");
 						System.out.println("------------------------------");
 						returnView();
 					case 0:
@@ -83,6 +81,10 @@ public class MainWindow {
 		}
 	}
 	
-	
+	@RequestMapping(url = "/test/a")
+	public void test() throws Exception {
+		System.out.println("이게 되나?");
+		System.out.println("호옥시~?");
+	}
 	
 }

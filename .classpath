@@ -7,9 +7,7 @@
 	<classpathentry kind="lib" path="lib/mybatis-3.5.10.jar"/>
 	<classpathentry kind="lib" path="lib/postgresql-42.4.0.jar"/>
 	<classpathentry kind="lib" path="lib/lombok.jar"/>
-	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-api-2.17.2.jar"/>
-	<classpathentry kind="lib" path="lib/reload4j-1.2.21.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.36.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-simple-1.7.36.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
