@@ -1,7 +1,6 @@
 package kr.co.file.view;
 
 import kr.co.file.annotation.AnnotationHandler;
-import kr.co.file.annotation.RequestMapping;
 import kr.co.file.util.ScanUtil;
 
 public class MainView {
@@ -81,10 +80,5 @@ public class MainView {
 		}
 	}
 	
-	@RequestMapping(url = "/test/a")
-	public void test() throws Exception {
-		System.out.println("이게 되나?");
-		System.out.println("호옥시~?");
-	}
-	
+
 }

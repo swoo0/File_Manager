@@ -22,7 +22,7 @@ public class MybatisSqlSessionFactory implements SqlSessionFactory {
 		try {
 			Reader reader = Resources.getResourceAsReader(config);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-//			reader.close();
+			reader.close();
 			
 			System.out.println("sqlSessionFactory 성공했습니다.");
 		} catch (Exception e) {

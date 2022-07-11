@@ -20,8 +20,7 @@ public class FileServiceImpl implements FileService {
 	private static FileService fileService;
 	
 	// 생성자 선언
-	private FileServiceImpl() {
-	}
+	private FileServiceImpl() {}
 	
 	public static FileService getInstance() {
 		if (fileService == null) {

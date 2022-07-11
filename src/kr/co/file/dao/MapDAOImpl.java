@@ -3,18 +3,16 @@ package kr.co.file.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import kr.co.file.dto.SubwayVO;
-import kr.co.file.util.MybatisSqlSessionFactory;
 
 public class MapDAOImpl implements MapDAO {
 
 	private static MapDAO mapDAO;
-	private SqlSessionFactory ssn;
+//	private SqlSessionFactory ssf;
 	
 	private MapDAOImpl() {
-		ssn = MybatisSqlSessionFactory.getSqlSessionFactory();
+//		ssf = MybatisSqlSessionFactory.getSqlSessionFactory();
 	}
 	
 	public static MapDAO getInstance() {	
@@ -24,8 +22,8 @@ public class MapDAOImpl implements MapDAO {
 		return mapDAO;
 	}
 	
-	public List<SubwayVO> selectSubwayList() {
-		SqlSession session = ssn.openSession();
+	public List<SubwayVO> selectSubwayList(SqlSession session) {
+//		SqlSession session = ssf.openSession();
 		List<SubwayVO> subwayList = null;
         try {
         	subwayList = session.selectList("Subway-Mapper.selectSubwayList");
