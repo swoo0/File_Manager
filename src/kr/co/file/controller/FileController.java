@@ -1,6 +1,7 @@
 package kr.co.file.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import kr.co.file.annotation.RequestMapping;
 import kr.co.file.service.FileService;
@@ -13,34 +14,40 @@ public class FileController {
 	private FileService fileService = FileServiceImpl.getInstance();
 	private MapService mapService = MapServiceImpl.getInstance();
 	
-	@RequestMapping(url = "/file/list")
+	@RequestMapping(value = "1")
 	public void list() throws IOException {
 		fileService.getFileList();
 	}
 
-	@RequestMapping(url = "/file/create")
+	@RequestMapping(value = "2")
 	public void createFile() throws IOException {
 		fileService.createFile();
 	}
 
-	@RequestMapping(url = "/file/delete")
+	@RequestMapping(value = "3")
 	public void deleteFile() throws IOException {
 		fileService.deleteFile();
 	}
 
-	@RequestMapping(url = "/file/content/read")
+	@RequestMapping(value = "4")
 	public void readFileContent() throws IOException {
 		fileService.readFileContent();
 	}
 
-	@RequestMapping(url = "/file/content/write")
+	@RequestMapping(value = "5")
 	public void writeFileContent() throws IOException {
 		fileService.writeFileContent();
 	}
 	
-	@RequestMapping(url = "/subway/list")
-	public void subwayList() throws Exception {
+	@RequestMapping(value = "6")
+	public void subwayList() throws SQLException {
 		mapService.getSubwayList();
 	}
+			
+	@RequestMapping(value = "0")
+	public String end() throws Exception {
+		return "break";
+	}
+	
 	
 }

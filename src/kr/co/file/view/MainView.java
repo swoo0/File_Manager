@@ -5,7 +5,7 @@ import kr.co.file.util.ScanUtil;
 
 public class MainView {
 	
-	AnnotationHandler anno = new AnnotationHandler();
+	private AnnotationHandler anno = new AnnotationHandler();
 	
 	// 메인 메뉴
 	public void view() {
@@ -16,55 +16,27 @@ public class MainView {
 		System.out.println("| \t 4. 파일 내용 읽기 \t |");
 		System.out.println("| \t 5. 파일 내용 쓰기 \t |");
 		System.out.println("| \t 6. 지하철역 검색 \t |");
+		System.out.println("| \t 7. 테스트 \t\t |");
 		System.out.println("| \t 0. 시스템 종료 \t |");
 		System.out.println("==================================");
-
+		
 		// 선택지
 		try {
 			while (true) {
 				System.out.print("어떤 서비스를 이용하시겠습니까? >> ");
-				int menu = ScanUtil.nextInt();
-				switch (menu) {
-					case 1:
-						System.out.println("---------- 파일 목록 ----------");
-						anno.action("/file/list");
-						System.out.println("-------------------------------");
-						returnView();
-					case 2:
-						System.out.println("---------- 파일 생성 ----------");
-						anno.action("/file/create");
-						System.out.println("-------------------------------");
-						returnView();
-					case 3:
-						System.out.println("---------- 파일 삭제 ----------");
-						anno.action("/file/delete");
-						System.out.println("-------------------------------");
-						returnView();
-					case 4:
-						System.out.println("------- 파일 내용 읽기 -------");
-						anno.action("/file/content/read");
-						System.out.println("------------------------------");
-						returnView();
-					case 5:
-						System.out.println("------- 파일 내용 쓰기 -------");
-						anno.action("/file/content/write");
-						System.out.println("------------------------------");
-						returnView();
-					case 6:
-						System.out.println("------- 지하철역 조회 -------");
-						anno.action("/subway/list");
-						System.out.println("------------------------------");
-						returnView();
-					case 0:
-						System.out.println("시스템을 종료합니다..");
-						break;
-					default:
-						System.out.println("올바른 입력 형식이 아닙니다!");
-						continue;
+				String menu = ScanUtil.nextLine();
+				
+				if (menu.equals("0")) {
+					break;
+				} else if (Integer.parseInt(menu) >= 0 && Integer.parseInt(menu) <= 7) {
+					anno.action(menu);
+					returnView();
+				} else {
+					System.out.println("해당 서비스는 존재하지 않습니다.");
 				}
-				break;
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("올바른 입력형식이 아닙니다!");
 			view();
 		}

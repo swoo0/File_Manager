@@ -35,7 +35,6 @@ public class FileServiceImpl implements FileService {
 		File[] directoryFiles = directory.listFiles();
 
 		for (int i = 0; i < directoryFiles.length; i++) {
-//			System.out.println(directoryFiles[i].getName());
 			log.info("파일명 : " + directoryFiles[i].getName());
 		}
 		if (directoryFiles.length == 0) {

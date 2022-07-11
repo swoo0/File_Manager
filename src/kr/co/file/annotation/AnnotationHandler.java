@@ -1,6 +1,5 @@
 package kr.co.file.annotation;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -8,7 +7,7 @@ import kr.co.file.controller.FileController;
 
 public class AnnotationHandler {
 	
-	public void action(String url) throws NoSuchMethodException, ClassNotFoundException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
+	public void action(String url) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
 		
 		FileController con = new FileController();
 		
@@ -16,17 +15,14 @@ public class AnnotationHandler {
 		
 		Method[] methods = c.getMethods();
 		for (Method method : methods) {
-			Annotation annotation = method.getAnnotation(RequestMapping.class);
-			if (annotation instanceof RequestMapping) {
-				RequestMapping requestMapping = (RequestMapping) annotation;
-				if (url.equals(requestMapping.url())) {
+			if (method.isAnnotationPresent(RequestMapping.class)) {
+				RequestMapping anno = method.getAnnotation(RequestMapping.class);
+				if (anno.value().equals(url)) {
 					method.invoke(c.newInstance());
 				}
 			}
 		}
 		
-		
 	}
-	
 	
 }
