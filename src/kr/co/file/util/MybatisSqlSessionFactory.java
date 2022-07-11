@@ -15,25 +15,27 @@ public class MybatisSqlSessionFactory implements SqlSessionFactory {
 
 	private static SqlSessionFactory sqlSessionFactory;
 	
-	{
+	static {
+		
 		String config = "mybatis/config/sqlConfig.xml";
 		
 		try {
 			Reader reader = Resources.getResourceAsReader(config);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-			reader.close();
+//			reader.close();
 			
 			System.out.println("sqlSessionFactory 성공했습니다.");
 		} catch (Exception e) {
 			System.out.println("sqlSessionFactory 실패했습니다.");
 			e.printStackTrace();
 		}
+		
 	}
-	
 	
 	public static SqlSessionFactory getSqlSessionFactory() {
 		return sqlSessionFactory;
 	}
+	
 	
 	public Configuration getConfiguration() {
 		return sqlSessionFactory.getConfiguration();

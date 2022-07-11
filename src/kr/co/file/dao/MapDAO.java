@@ -8,6 +8,6 @@ import kr.co.file.dto.SubwayVO;
 
 public interface MapDAO {
 
-	public List<SubwayVO> selectSubwayList(SqlSession session);
+	public List<SubwayVO> selectSubwayList();
 	
 }

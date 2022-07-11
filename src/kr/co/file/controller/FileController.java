@@ -3,13 +3,15 @@ package kr.co.file.controller;
 import java.io.IOException;
 
 import kr.co.file.annotation.RequestMapping;
+import kr.co.file.service.FileService;
 import kr.co.file.service.FileServiceImpl;
+import kr.co.file.service.MapService;
 import kr.co.file.service.MapServiceImpl;
 
 public class FileController {
 
-	private FileServiceImpl fileService = FileServiceImpl.getInstance();
-	private MapServiceImpl mapService = MapServiceImpl.getInstance();
+	private FileService fileService = FileServiceImpl.getInstance();
+	private MapService mapService = MapServiceImpl.getInstance();
 	
 	@RequestMapping(url = "/file/list")
 	public void list() throws IOException {

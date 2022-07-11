@@ -17,13 +17,13 @@ public class FileServiceImpl implements FileService {
 	private String path = "D:/Project/Study/file/fol/";		// 파일 경로
 	private String extension = ".txt";		// 파일 확장자
 
-	private static FileServiceImpl fileService;
+	private static FileService fileService;
 	
 	// 생성자 선언
 	private FileServiceImpl() {
 	}
 	
-	public static FileServiceImpl getInstance() {
+	public static FileService getInstance() {
 		if (fileService == null) {
 			fileService = new FileServiceImpl();
 		}
