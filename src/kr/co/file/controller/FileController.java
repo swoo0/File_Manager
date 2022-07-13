@@ -3,12 +3,14 @@ package kr.co.file.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import kr.co.file.annotation.Controller;
 import kr.co.file.annotation.RequestMapping;
 import kr.co.file.service.FileService;
 import kr.co.file.service.FileServiceImpl;
 import kr.co.file.service.MapService;
 import kr.co.file.service.MapServiceImpl;
 
+@Controller
 public class FileController {
 
 	private FileService fileService = FileServiceImpl.getInstance();
@@ -42,6 +44,11 @@ public class FileController {
 	@RequestMapping(value = "6")
 	public void subwayList() throws SQLException {
 		mapService.getSubwayList();
+	}
+	
+	@RequestMapping(value = "7")
+	public void test() throws SQLException {
+		mapService.getPakageList();
 	}
 			
 	@RequestMapping(value = "0")

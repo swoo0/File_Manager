@@ -16,7 +16,7 @@ public class MainView {
 		System.out.println("| \t 4. 파일 내용 읽기 \t |");
 		System.out.println("| \t 5. 파일 내용 쓰기 \t |");
 		System.out.println("| \t 6. 지하철역 검색 \t |");
-		System.out.println("| \t 7. 테스트 \t\t |");
+		System.out.println("| \t 7. 패키지 테스트 \t |");
 		System.out.println("| \t 0. 시스템 종료 \t |");
 		System.out.println("==================================");
 		
@@ -28,16 +28,16 @@ public class MainView {
 				
 				if (menu.equals("0")) {
 					break;
-				} else if (Integer.parseInt(menu) >= 0 && Integer.parseInt(menu) <= 7) {
+				} else if (Integer.parseInt(menu) > 0 && Integer.parseInt(menu) <= 7) {
 					anno.action(menu);
 					returnView();
 				} else {
-					System.out.println("해당 서비스는 존재하지 않습니다.");
+					System.err.println("해당 서비스는 존재하지 않습니다.");
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("올바른 입력형식이 아닙니다!");
+//			e.printStackTrace();
+			System.err.println("올바른 입력형식이 아닙니다!");
 			view();
 		}
 
